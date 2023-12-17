@@ -1,3 +1,12 @@
+:root {
+  --dark: #05386B;
+  --fresh-green-dark: #379683;
+  --fresh-green-medium: #5CDB95;
+  --fresh-green-light: #8EE4AF;
+  --creme-light: #EDF5E1;
+}
+
+
 .App {
   text-align: center;
 }
@@ -14,7 +23,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--fresh-green-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,14 +34,38 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--fresh-green-medium);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-input {
+  background-color: var(--creme-light);
+  border: 2px solid var(--fresh-green-dark);
+  color: var(--fresh-green-dark);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 80%;
+  height: 200px;
+} .question-input:hover {
+  background-color: var(--fresh-green-light);
+  color: var(--fresh-green-dark);
 }
+
+.submit-button {
+  background-color: var(--fresh-green-medium);
+  border: 2px solid var(--fresh-green-dark);
+  color: var(--creme-light);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+} .submit-button:hover {
+  background-color: var(--fresh-green-light);
+  color: var(--fresh-green-dark);
+}
+

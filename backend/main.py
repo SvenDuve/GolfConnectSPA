@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from langchain.chat_models import ChatOpenAI
@@ -11,6 +12,20 @@ from langchain.chains import LLMChain
 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",  # React's default port
+    "http://127.0.0.1:3000",
+    # Add other origins/ports as needed
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows access from specified origins
+    allow_credentials=True,
+    allow_methods=["*"],    # Allows all methods
+    allow_headers=["*"],    # Allows all headers
+)
 
 import os
 import openai
@@ -67,7 +82,7 @@ else:
     llm_model = "gpt-3.5-turbo-0301"
 
 
-llm = ChatOpenAI(temperature=0, model=llm_model)
+llm = ChatOpenAI(temperature=0.9, model=llm_model)
 
 
 class TextRequest(BaseModel):
